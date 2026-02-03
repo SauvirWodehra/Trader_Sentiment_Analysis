@@ -1,145 +1,157 @@
 # 📊 Trader Sentiment Analysis  
-### Understanding Trader Behavior Under Fear & Greed Market Conditions
-
-![Bitcoin](https://img.shields.io/badge/Market-Bitcoin-orange)
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![Status](https://img.shields.io/badge/Status-Completed-success)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+### Exploring Trader Behavior Under Fear & Greed Market Conditions
 
 ---
 
 ## 📌 Project Overview
 
-Financial markets are strongly influenced by **human emotions**, especially **Fear** and **Greed**.  
-This project explores how market sentiment impacts **trader performance, risk-taking behavior, and trading outcomes** using real historical trading data combined with Bitcoin market sentiment indicators.
+Financial markets are strongly influenced by **human emotions**, particularly **Fear** and **Greed**.  
+This project analyzes how market sentiment impacts **trader performance, trading behavior, risk-taking, and outcome stability** by combining Bitcoin market sentiment data with real historical trading data from Hyperliquid.
 
-The goal is to **uncover hidden behavioral patterns** and deliver **data-driven insights** that can help design **smarter and more disciplined trading strategies**.
+The goal is to **uncover hidden behavioral patterns** and deliver **data-driven insights** that can guide **smarter and more disciplined trading strategies**.
 
 ---
 
 ## 🧠 Problem Statement
 
-> How does market sentiment (Fear vs Greed) influence trader behavior and performance?
+The objective of this project is to explore the relationship between **market sentiment (Fear vs Greed)** and:
 
-Specifically, this project aims to:
-- Analyze trader profitability under different sentiments
-- Identify risk-taking and activity patterns
-- Study win/loss behavior and performance stability
-- Extract actionable insights for smarter trading decisions
+- Trader profitability  
+- Trading activity  
+- Risk-taking behavior  
+- Win/loss outcomes  
+- Stability and consistency of performance  
 
 ---
 
 ## 📂 Datasets Used
 
-### 1️⃣ Bitcoin Market Sentiment Dataset  
-- **Source:** Fear & Greed Index  
-- **Key Columns:**
-  - `timestamp` – Unix timestamp of sentiment
-  - `value` – Sentiment score (0–100)
-  - `classification` – Fear / Greed label
-  - `date` – Calendar date
+### 1️⃣ Bitcoin Market Sentiment Dataset
+This dataset captures **daily market emotion** for Bitcoin.
+
+**Key columns:**
+- `timestamp` – Unix timestamp of sentiment
+- `value` – Sentiment score (0–100)
+- `classification` – Market emotion (Fear / Greed)
+- `date` – Calendar date
+
+---
 
 ### 2️⃣ Historical Trader Data (Hyperliquid)
-- **Key Columns:**
-  - `Account` – Trader identifier
-  - `Execution Price` – Trade execution price
-  - `Size USD` – Trade size (used as risk proxy)
-  - `closedPnL` – Realized profit or loss
-  - `Timestamp` – Trade execution time
+This dataset captures **real executed trades**.
+
+**Key columns:**
+- `Account` – Trader identifier
+- `Execution Price` – Trade execution price
+- `Size USD` – Trade size (used as risk proxy)
+- `closedPnL` – Realized profit or loss
+- `Timestamp` – Trade execution time
 
 ---
 
-## ⚙️ Methodology
+## ⚙️ Setup & How to Run
 
-### 🔹 Data Preparation
-- Converted timestamps to a common **daily format**
-- Merged sentiment and trade data using a **left join**
-- Created a sentiment-aligned analysis dataset
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/your-username/Trader_Sentiment_Analysis.git
+cd Trader_Sentiment_Analysis
+Run the Project
+jupyter notebook
+Open this Notebook
+trader_sentiment_analysis.ipynb
 
-### 🔹 Feature Engineering
-- **Trade Outcome:** Win / Loss / Breakeven (based on `closedPnL`)
-- **Risk Proxy:** Trade size in USD (`Size USD`)
-- **Sentiment Simplification:** Extreme Fear → Fear, Extreme Greed → Greed
 
----
+## 1️⃣ Data Preparation & Feature Engineering
 
-## 📈 Analysis Framework
+The sentiment and trade datasets were first aligned to a common **daily date format** to enable accurate merging. A left join was used to combine trade-level data with daily market sentiment while preserving all trade records.  
+A separate analysis-ready dataset was created containing only trades with available sentiment information.
 
-The analysis was conducted in structured steps:
-
-1. **Average PnL by Sentiment** – Profitability comparison  
-2. **Trade Frequency Analysis** – Market activity patterns  
-3. **Risk-Taking Behavior** – Position size comparison  
-4. **Win vs Loss Distribution** – Trade success rates  
-5. **Trader-Level Behavior** – Same trader under Fear vs Greed  
-6. **Volatility Analysis** – Stability vs fluctuation of outcomes  
+Key features engineered include:
+- **Trade Outcome**: Each trade was classified as Win, Loss, or Breakeven based on realized closed PnL.
+- **Risk Proxy**: Trade size in USD was used as a proxy for risk exposure, as explicit leverage data was unavailable.
+- **Sentiment Simplification**: Extreme Fear and Fear were grouped as Fear, and Extreme Greed and Greed were grouped as Greed.
 
 ---
 
-## 🔍 Key Insights
+## 2️⃣ Analysis Framework
 
-- 📈 **Greed** periods show higher average profitability but increased volatility
-- ⚠️ Traders take **larger risks** during Greed
-- 🛑 **Fear** leads to lower activity but more stable outcomes
-- 🔄 The same trader behaves differently under different sentiments
-- 🎯 Emotional trading often leads to inconsistent performance
+A structured analysis framework was applied to study trader behavior under Fear and Greed:
 
----
-
-## 💡 Practical Strategy Takeaways
-
-- Control position sizing during Greed to avoid overexposure
-- Maintain discipline during Fear to avoid panic-driven decisions
-- Focus on consistency and risk management over short-term gains
-- Use sentiment as a **contextual signal**, not a trading trigger
+- **Average PnL by Sentiment** to compare profitability
+- **Trade Frequency Analysis** to understand trader activity
+- **Risk-Taking Analysis** using trade size as risk exposure
+- **Win vs Loss Distribution** to evaluate trade success rates
+- **Trader-Level Behavioral Analysis** to study how the same trader behaves under different sentiments
+- **Stability and Volatility Analysis** to assess consistency of outcomes
 
 ---
 
-## 📊 Visualizations
+## 3️⃣ Outputs Generated
 
-The project includes multiple visualizations such as:
-- Bar charts for profitability and trade frequency
-- Boxplots for risk and PnL volatility
-- Stacked bar charts for win/loss distribution
-- Scatter plots for behavioral analysis
+### Charts
+- Average Closed PnL by Market Sentiment  
+- Trade Frequency under Fear vs Greed  
+- Risk (Trade Size USD) Distribution  
+- Win vs Loss Distribution by Sentiment  
+- Risk vs PnL Scatter Plot  
+- PnL Volatility by Sentiment  
 
-(All plots are generated using Matplotlib and Seaborn.)
+### Tables
+- Average PnL by Sentiment  
+- Trade Count by Sentiment  
+- Average Risk by Sentiment  
+- Win/Loss Percentage Distribution  
+- Trader-Level Behavioral Metrics  
+- Volatility Metrics by Sentiment  
+
+(All outputs are generated within the Jupyter notebook.)
+
+---
+
+## 4️⃣ Short Write-Up Summary
+
+### Methodology
+Daily Bitcoin market sentiment data was aligned with trade-level historical data. Feature engineering was performed to define trade outcomes, risk exposure, and simplified sentiment categories. The analysis compared profitability, activity, risk, behavior, and stability under Fear and Greed conditions.
+
+---
+
+### Key Insights
+- Greed periods show higher average profitability and trading activity.
+- Traders take larger risks during Greed, leading to higher volatility.
+- Fear periods exhibit lower activity but more stable outcomes.
+- The same trader often changes behavior based on market sentiment.
+- Higher profits during Greed are frequently accompanied by instability.
+
+---
+
+### Strategy Recommendations
+- Limit position size during Greed to avoid overexposure.
+- Maintain discipline during Fear to avoid panic-driven decisions.
+- Focus on consistency and risk management rather than short-term gains.
+- Use market sentiment as contextual guidance, not a direct trading signal.
+
+---
+
+### Limitations & Future Scope
+- Sentiment data is available only at a daily level.
+- Explicit leverage information was unavailable.
+- Future work may include risk-adjusted returns, intraday sentiment, and strategy backtesting.
+
+---
+
+### Conclusion
+The analysis confirms that market sentiment significantly influences trader behavior, risk-taking, and performance. Understanding these sentiment-driven patterns can help traders and platforms design smarter, emotion-aware strategies that balance profitability with disciplined risk management.
 
 ---
 
 ## 🚀 Tech Stack
-
 - **Language:** Python  
 - **Libraries:** Pandas, NumPy, Matplotlib, Seaborn  
 - **Environment:** Jupyter Notebook  
 
 ---
 
-## ⚠️ Limitations & Future Scope
-
-- Sentiment data is daily (no intraday sentiment)
-- Explicit leverage data was unavailable
-- Future improvements could include:
-  - Risk-adjusted returns
-  - Intraday sentiment analysis
-  - Strategy backtesting
-
----
-
-## 🏁 Conclusion
-
-This project demonstrates that **market sentiment significantly influences trader behavior, risk-taking, and performance**.  
-By converting emotional signals into data-driven insights, traders and platforms can design **smarter, emotion-aware strategies** that balance profitability with disciplined risk management.
-
----
-
 ## 📬 Contact
+📧 Email: sauvirwodehras3136@gmail.com  
+🔗 GitHub: https://github.com/SauvirWodehra  
 
-If you have questions or feedback, feel free to reach out.
-
-📧 **Email:** sauvirwodehras3136@gmail.com  
-🔗 **GitHub:** https://github.com/SauvirWodehra  
-
----
-
-⭐ If you found this project insightful, feel free to star the repository!
