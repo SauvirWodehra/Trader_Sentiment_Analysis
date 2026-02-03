@@ -49,16 +49,6 @@ This dataset captures **real executed trades**.
 
 ---
 
-## ⚙️ Setup & How to Run
-
-### Step 1: Clone the Repository
-```bash
-git clone https://github.com/your-username/Trader_Sentiment_Analysis.git
-cd Trader_Sentiment_Analysis
-Run the Project
-jupyter notebook
-Open this Notebook
-trader_sentiment_analysis.ipynb
 
 
 ## 1️⃣ Data Preparation & Feature Engineering
@@ -154,4 +144,15 @@ The analysis confirms that market sentiment significantly influences trader beha
 ## 📬 Contact
 📧 Email: sauvirwodehras3136@gmail.com  
 🔗 GitHub: https://github.com/SauvirWodehra  
+
+## ⚙️ Setup & How to Run
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/your-username/Trader_Sentiment_Analysis.git
+cd Trader_Sentiment_Analysis
+Run the Project
+jupyter notebook
+Open this Notebook
+trader_sentiment_analysis.ipynb
 
